@@ -1,0 +1,94 @@
+@use "../variables" as *;
+
+.faq-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  margin: $margin-mobile;
+
+  @media (min-width: $breakpoint-xs) {
+    margin: $margin-tablet;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    margin: $margin-laptop;
+    gap: $spacing-xxl;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    margin: $margin-desktop;
+  }
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.trigger-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  p {
+    margin-right: 0.25rem;
+    font-size: $font-size-sm;
+
+    @media (min-width: $breakpoint-md) {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+// Collapsible
+
+.collapsible-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-md;
+  @media (min-width: $breakpoint-md) {
+    width: 70vw;
+    align-self: center;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    width: 50vw;
+  }
+}
+
+.collapsible-closed {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0 1rem;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 1rem;
+  &:hover {
+    cursor: pointer;
+  }
+  @media (min-width: $breakpoint-md) {
+    margin: unset;
+  }
+}
+
+.collapsible-open {
+  @extend .collapsible-closed;
+  border-radius: $border-radius-base;
+  background: rgba(230, 230, 230, 0.2);
+}
+
+.Collapsible__contentInner {
+  .faq-answer {
+    margin-top: $spacing-sm;
+    @media (min-width: $breakpoint-md) {
+      margin-top: unset;
+    }
+  }
+}
+
+.Collapsible__contentInner p {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-light;
+  @media (min-width: $breakpoint-md) {
+    font-size: $font-size-base;
+  }
+}
