@@ -1,4 +1,3 @@
-import React from "react";
 // import inputFields from "../../data/inputFields.json";
 // import { calculateTotalFileSize } from "../../utils/calculateTotalFileSize";
 // import { FormField } from "./formField";
@@ -10,6 +9,12 @@ import "../../style/privacyStyles/privacy.scss";
 
 export const IdForm = (props) => {
   const { id, nome } = props.filteredCourses;
+
+  const emailSubject = `Interesse no curso: ${id} (${nome})`;
+
+  const mailToLink = `mailto:formacelf@gmail.com?subject=${encodeURIComponent(
+    emailSubject
+  )}`;
 
   // const [formData, setFormData] = useState(
   //   inputFields.reduce((acc, field) => ({ ...acc, [field.name]: "" }), {})
@@ -93,9 +98,11 @@ export const IdForm = (props) => {
         <p>
           Para efeitos de pré-inscrição no curso pretendido (UFCD {id} - {nome})
           pedimos que nos contacte através do número de telefone{" "}
-          <b>227 130 875</b> ou que nos envie um email para
-          <b> formacelf@gmail.com</b> a manifestar o seu interesse nesta
-          formação.
+          <b>227 130 875</b> ou que nos envie um email para -
+          <b>
+            <a href={mailToLink}> formacelf@gmail.com </a>
+          </b>
+          - a manifestar o seu interesse nesta formação.
         </p>
 
         <p>
